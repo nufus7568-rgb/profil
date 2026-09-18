@@ -762,3 +762,18 @@ nav a,
 header a {
   color: #333 !important;
 }
+.about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-45deg) scale(1.4); /* lawan rotasi kotak & perbesar sedikit agar penuh */
+    border-radius: 4px;
+}
+
+.about-box {
+    position: relative;
+    overflow: hidden; /* supaya foto tidak keluar dari bentuk diamond */
+}
