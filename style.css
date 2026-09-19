@@ -163,7 +163,7 @@ footer span {
 }
 
 
-/* HERO DESIGN */
+/* ================= HERO DESIGN ================= */
 
 .hero-design {
     width: 380px;
@@ -250,22 +250,72 @@ footer span {
 
 .about-box {
     height: 400px;
-    background: linear-gradient(135deg, pink, pink);
-    border: 1px solid pink;
+
+    background: transparent;
+    border: none;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .about-box::before {
-    content: "";
-    width: 250px;
-    height: 250px;
-    border: 1px solid var(--accent);
-    transform: rotate(45deg);
+    display: none;
 }
+
+
+/* ================= FOTO ABOUT ================= */
+
+.about-photo {
+    width: 280px;
+    height: 280px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 5px solid var(--accent);
+
+    box-shadow:
+        0 0 15px rgba(232, 117, 168, 0.3),
+        0 0 0 10px var(--bg),
+        0 0 0 12px var(--accent);
+
+    z-index: 3;
+}
+
+
+/* GARIS BULAT ABOUT */
+
+.about-box::after {
+    content: "";
+
+    position: absolute;
+
+    width: 345px;
+    height: 345px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 2px dashed var(--accent);
+    border-radius: 50%;
+
+    z-index: 1;
+}
+
+
+/* ================= ABOUT ICON ================= */
 
 .about-icon {
     position: absolute;
@@ -274,6 +324,9 @@ footer span {
     color: var(--accent);
     opacity: 0.8;
 }
+
+
+/* ================= TEKS ABOUT ================= */
 
 .about-text h3 {
     font-size: 30px;
@@ -595,6 +648,135 @@ footer p {
 }
 
 
+/* ================= FOTO PROFIL HOME ================= */
+
+.profile-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* FOTO */
+
+.profile-photo img {
+    width: 210px;
+    height: 210px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    position: relative;
+    z-index: 2;
+
+    border: 4px solid var(--accent);
+
+    box-shadow:
+        0 0 30px rgba(232, 117, 168, 0.4);
+}
+
+
+/* ================= GARIS HOME BERPUTAR ================= */
+
+.profile-photo .circle-one {
+    width: 300px;
+    height: 300px;
+
+    top: 0;
+    left: 0;
+
+    position: absolute;
+
+    border: 2px dashed var(--accent);
+    border-radius: 50%;
+
+    animation: putar 8s linear infinite;
+}
+
+.profile-photo .circle-two {
+    width: 240px;
+    height: 240px;
+
+    top: 30px;
+    left: 30px;
+
+    position: absolute;
+
+    border: 2px dashed var(--accent2);
+    border-radius: 50%;
+
+    animation: putarBalik 6s linear infinite;
+}
+
+
+/* ================= ANIMASI PUTAR ================= */
+
+@keyframes putar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes putarBalik {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+/* ================= FORM ================= */
+
+.contact-form input,
+.contact-form textarea,
+input[type="text"],
+input[type="email"],
+textarea {
+    background-color: pink !important;
+    color: #333 !important;
+    border: 1px solid pink !important;
+}
+
+
+/* ================= NAVBAR PINK ================= */
+
+header,
+nav,
+.navbar {
+    background-color: #f8c9dc !important;
+}
+
+nav a,
+.navbar a,
+header a {
+    color: #333 !important;
+}
+
+
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
@@ -643,8 +825,11 @@ footer p {
     .services-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
+
+/* ================= MOBILE ================= */
 
 @media (max-width: 600px) {
 
@@ -689,91 +874,25 @@ footer p {
         gap: 15px;
         text-align: center;
     }
-}
-.profile-placeholder {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-/* ================= FOTO PROFIL ================= */
 
-.profile-photo {
-    width: 300px;
-    height: 300px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    /* FOTO ABOUT DI HP */
 
-/* Foto */
-.profile-photo img {
-    width: 210px;
-    height: 210px;
-    object-fit: cover;
-    border-radius: 50%;
-    position: relative;
-    z-index: 2;
-    border: 4px solid var(--accent);
-    box-shadow: 0 0 30px rgba(0, 245, 212, 0.4);
-}
+    .about-photo {
+        width: 230px;
+        height: 230px;
+    }
 
-/* Lingkaran luar */
-.profile-photo .circle-one {
-    width: 300px;
-    height: 300px;
-    top: 0;
-    left: 0;
-    position: absolute;
-}
+    .about-box::after {
+        width: 290px;
+        height: 290px;
+    }
 
-/* Lingkaran dalam */
-.profile-photo .circle-two {
-    width: 240px;
-    height: 240px;
-    top: 30px;
-    left: 30px;
-    position: absolute;
-}
 
-.contact-form input,
-.contact-form textarea,
-input[type="text"],
-input[type="email"],
-textarea {
-  background-color: pink !important;
-  color: #333 !important;
-  border: 1px solid pink !important;
-}
+    /* FOTO HOME DI HP */
 
-header,
-nav,
-.navbar {
-  background-color: #f8c9dc !important;
-}
+    .profile-photo {
+        transform: scale(0.85);
+    }
 
-nav a,
-.navbar a,
-header a {
-  color: #333 !important;
-}
-.about-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: rotate(-45deg) scale(1.4); /* lawan rotasi kotak & perbesar sedikit agar penuh */
-    border-radius: 4px;
-}
-
-.about-box {
-    position: relative;
-    overflow: hidden; /* supaya foto tidak keluar dari bentuk diamond */
 }
